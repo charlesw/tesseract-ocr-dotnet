@@ -1,0 +1,11 @@
+/vs2010/Release.dll/**/*
+/vs2010/Release.dll/*
+/vs2010/Debug.dll/**/*
+/vs2010/Debug.dll/*
+/vs2010/ipch/**/*
+/vs2010/ipch/*
+/**/*.vcxproj.user
+/**/*.opensdf
+/**/*.sdf
+/**/*.sln.docstates.suo
+/**/*.suo

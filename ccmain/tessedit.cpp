@@ -101,7 +101,17 @@ bool Tesseract::init_tesseract_lang_data(
     const GenericVector<STRING> *vars_values,
     bool set_only_init_params) {
   // Set the basename, compute the data directory.
-  main_setup(arg0, textbase);
+	 #if _BUILDASDLL
+		imagebasename = textbase;      /*name of image */
+		STRING dll_module_name;
+	#ifdef __MSW32__
+		dll_module_name = tessedit_module_name;
+	#endif
+		if (getpath(arg0, dll_module_name, datadir) < 0)
+			return false;
+	#else
+		main_setup(arg0, textbase);
+	#endif
 
   // Set the language data path prefix
   lang = language != NULL ? language : "eng";
