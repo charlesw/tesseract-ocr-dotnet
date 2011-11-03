@@ -1,0 +1,8 @@
+/bin/*
+/bin/**/*
+/Bin/*
+/Bin/**/*
+/obj/*
+/obj/**/*
+*.suo
+*.user

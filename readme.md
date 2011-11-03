@@ -26,18 +26,25 @@ Code License: [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
             public static void Main(string[] args)
             {
                 const string language = "eng";
-                string imageFile  = args[0];
+                string imageFile = args[0];
 
-                TesseractProcessor processor = new TesseractProcessor();            
+                TesseractProcessor processor = new TesseractProcessor();
 
-                using (var bmp = Bitmap.FromFile(imageFile) as Bitmap)
-                {
-                    processor.Init(TessractData, language, (int)OcrEngineMode.OEM_DEFAULT);
-                    
-                    string text = processor.Recognize(bmp);
-                    Console.WriteLine(
-                        string.Format("RecognizeMode: {1}\nText:\n{0}\n++++++++++++++++++++++++++++++++\n", text, ((eOcrEngineMode)oem).ToString()));            
+                using (var bmp = Bitmap.FromFile(imageFile) as Bitmap) {
+                    var success = processor.Init(TessractData, language, (int)eOcrEngineMode.OEM_DEFAULT);
+                    if (!success) {
+                        Console.WriteLine("Failed to initialize tesseract.");
+                    } else {
+                        string text = processor.Recognize(bmp);
+                        Console.WriteLine("Text:");
+                        Console.WriteLine("*****************************");
+                        Console.WriteLine(text);
+                        Console.WriteLine("*****************************");
+                    }
                 }
+
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
             }
         }
     }
