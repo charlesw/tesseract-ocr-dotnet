@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="tesseract"
 	ProjectGUID="{47519557-3296-407A-BE51-8175C77B0868}"
 	RootNamespace="tesseract"
@@ -20,11 +20,12 @@
 			Name="Release|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
+			ManagedExtensions="4"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -78,7 +79,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/LTCG /NODEFAULTLIB:library"
 				AdditionalDependencies="ws2_32.lib user32.lib zlib-static-mtdll.lib libpng-static-mtdll.lib libjpeg-static-mtdll.lib libtiff-static-mtdll.lib giflib-static-mtdll.lib liblept-static-mtdll.lib"
-				OutputFile=".\bin\$(ProjectName).exe"
+				OutputFile=".\bin\$(ProjectName).dll"
 				Version="3.01"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -117,11 +118,12 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)\$(ProjectName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
+			ManagedExtensions="4"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -150,13 +152,15 @@
 				Optimization="0"
 				AdditionalIncludeDirectories="..\api,..\ccmain,..\ccutil,..\ccstruct,..\classify,..\cutil,..\dict,..\display,..\image,..\textord,..\viewer,..\wordrec,..\pageseg,.,include,include\leptonica;..\vs2008\port"
 				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;__MSW32__;_CRT_SECURE_NO_WARNINGS;;LEPTONLIB_IMPORTS"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
+				StringPooling="true"
+				MinimalRebuild="false"
+				BasicRuntimeChecks="0"
 				RuntimeLibrary="3"
+				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="4"
 				SuppressStartupBanner="true"
-				DebugInformationFormat="4"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -172,10 +176,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="ws2_32.lib user32.lib lib\libleptd.lib"
-				OutputFile=".\bin.dbg\tesseract.exe"
-				LinkIncremental="2"
+				OutputFile=".\bin.dbg\tesseract.dll"
+				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
+				AssemblyDebug="1"
 				ProgramDatabaseFile=".\bin.dbg/tesseract.pdb"
 				SubSystem="1"
 				RandomizedBaseAddress="1"
@@ -307,6 +312,16 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<AssemblyReference
+			RelativePath="System.dll"
+			AssemblyName="System, Version=2.0.0.0, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
+		<AssemblyReference
+			RelativePath="System.Drawing.dll"
+			AssemblyName="System.Drawing, Version=2.0.0.0, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+			MinFrameworkVersion="131072"
+		/>
 	</References>
 	<Files>
 		<Filter
@@ -334,7 +349,43 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\api\Block.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Character.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\CommonStructureWrapper.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\DocumentLayout.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Helper.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\api\pageiterator.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\PageLayoutAnalyzer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Paragraph.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\RecognitionItem.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\RectBound.cpp"
 				>
 			</File>
 			<File
@@ -342,7 +393,35 @@
 				>
 			</File>
 			<File
+				RelativePath="..\api\Symbol.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TesseractConfigurator.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TesseractEngineWrapper.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TesseractInitializer.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\api\tesseractmain.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TesseractRecognizer.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TextLine.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Word.cpp"
 				>
 			</File>
 		</Filter>
@@ -355,7 +434,39 @@
 				>
 			</File>
 			<File
+				RelativePath="..\api\Character.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\CommonStructureWrapper.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Configuration.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\DocumentLayout.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Helper.h"
+				>
+			</File>
+			<File
 				RelativePath="..\api\pageiterator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Paragraph.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\RecognitionItem.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\RectBound.h"
 				>
 			</File>
 			<File
@@ -363,7 +474,23 @@
 				>
 			</File>
 			<File
+				RelativePath="..\api\Symbol.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TesseractEngineWrapper.h"
+				>
+			</File>
+			<File
 				RelativePath="..\api\tesseractmain.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\TextLine.h"
+				>
+			</File>
+			<File
+				RelativePath="..\api\Word.h"
 				>
 			</File>
 		</Filter>

@@ -18,7 +18,8 @@ namespace tesseractconsole
 
 			TesseractProcessor processor = new TesseractProcessor();
 
-			using (var bmp = Bitmap.FromFile(imageFile) as Bitmap) {
+            using (Bitmap bmp = Bitmap.FromFile(imageFile) as Bitmap)
+            {
 				var success = processor.Init(TessractData, language, (int)eOcrEngineMode.OEM_DEFAULT);
 				if (!success) {
 					Console.WriteLine("Failed to initialize tesseract.");
