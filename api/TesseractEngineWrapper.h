@@ -127,6 +127,8 @@ public:
 
 	bool SetVariable(System::String* nam, System::String* value);
 
+	void DisableThresholder();
+	void UseThresholder();
 private:
 	void InitializeWorkingSpace();
 	void InitializeEngineAPI();

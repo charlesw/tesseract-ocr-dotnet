@@ -96,6 +96,28 @@ bool TesseractProcessor::SetVariable(System::String* name, System::String* value
 
 	return succeed;
 }
+
+void TesseractProcessor::UseThresholder()
+{
+	if (_apiInstance == NULL)
+		return;
+
+	TessBaseAPI* api = (TessBaseAPI*)_apiInstance.ToPointer();
+	
+	ImageThresholder* thresholder = new ImageThresholder();
+	api->SetThresholder(thresholder);
+}
+
+void TesseractProcessor::DisableThresholder()
+{
+	if (_apiInstance == NULL)
+		return;
+
+	TessBaseAPI* api = (TessBaseAPI*)_apiInstance.ToPointer();
+	
+	api->SetThresholder(NULL);
+}
+
 // ===============================================================
 
 

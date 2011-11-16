@@ -24,6 +24,9 @@ namespace tesseractconsole
 				if (!success) {
 					Console.WriteLine("Failed to initialize tesseract.");
 				} else {
+                    // use thresholder
+                    processor.UseThresholder();
+
 					string text = processor.Recognize(bmp);
 					Console.WriteLine("Text:");
 					Console.WriteLine("*****************************");
