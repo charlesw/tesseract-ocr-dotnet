@@ -175,10 +175,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib user32.lib lib\libleptd.lib"
+				AdditionalDependencies="ws2_32.lib user32.lib libleptd.lib"
 				OutputFile=".\bin.dbg\tesseract.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
+				AdditionalLibraryDirectories=".\lib"
 				GenerateDebugInformation="true"
 				AssemblyDebug="1"
 				ProgramDatabaseFile=".\bin.dbg/tesseract.pdb"
