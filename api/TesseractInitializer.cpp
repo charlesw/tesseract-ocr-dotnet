@@ -108,6 +108,12 @@ bool TesseractProcessor::Init(String* dataPath, String* lang, int ocrEngineMode)
 {
 	bool bSucced = false;
 
+	// Append required trailing slash if missing
+	if(!dataPath->EndsWith("\\"))
+	{
+		dataPath = System::String::Concat(dataPath, "\\");
+	}
+
 	_dataPath = dataPath;
 	_lang = lang;
 	_ocrEngineMode = ocrEngineMode;
