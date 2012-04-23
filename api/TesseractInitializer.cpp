@@ -109,9 +109,10 @@ bool TesseractProcessor::Init(String* dataPath, String* lang, int ocrEngineMode)
 	bool bSucced = false;
 
 	// Append required trailing slash if missing
-	if(!dataPath->EndsWith("\\"))
+	String* separator = (System::IO::Path::DirectorySeparatorChar).ToString();
+	if(!dataPath->EndsWith(separator))
 	{
-		dataPath = System::String::Concat(dataPath, "\\");
+		dataPath = System::String::Concat(dataPath, separator);
 	}
 
 	_dataPath = dataPath;
