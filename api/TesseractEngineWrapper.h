@@ -125,6 +125,7 @@ public:
 	bool GetDoubleVariable(System::String* name, double __gc* value);
 	System::String* GetStringVariable(System::String* name);
 
+
 	bool SetVariable(System::String* nam, System::String* value);
 
 	void DisableThresholder();
@@ -163,7 +164,7 @@ public:
 	//
 	String* RecognizeGreyImage(unsigned short* greyData, int width, int height);
 
-
+	
 
 
 private:
@@ -191,7 +192,8 @@ public:
 	DocumentLayout* AnalyseLayoutBinaryImage(unsigned char* binData, int width, int height);
 	DocumentLayout* AnalyseLayoutGreyImage(unsigned char* greyData, int width, int height);
 	DocumentLayout* AnalyseLayoutGreyImage(unsigned short* greyData, int width, int height);
-
+	
+	int GetRotation();
 
 
 

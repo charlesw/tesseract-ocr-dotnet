@@ -81,6 +81,19 @@ DocumentLayout* TesseractProcessor::AnalyseLayout(System::Drawing::Image* image)
 	}
 }
 
+int TesseractProcessor::GetRotation()
+{
+	int blockrotation = 0;
+	int* blockpointer = &blockrotation;
+
+	bool dummy = true;
+	bool* dummypointer = &dummy;
+
+	this->EngineAPI->GetBlockTextOrientations(&blockpointer, &dummypointer);
+
+	return (*blockpointer) * 90;
+}
+
 DocumentLayout* TesseractProcessor::AnalyseLayoutBinaryImage(
 	unsigned char* binData, int width, int height)
 {
