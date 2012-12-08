@@ -1,3 +1,7 @@
+## Warning 
+This project has been deprecated in favour of https://github.com/charlesw/tesseract.
+
+## Overview
 A tesseract-ocr .NET wrapper based on tesseractdotnet.
 
 This project can be considered an (unofficial) fork off the tesseract-ocr 
